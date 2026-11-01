@@ -63,13 +63,9 @@
         const urlParams = new URLSearchParams(queryString);
         
         // 4. Extract specific parameter values by their keys
-        const nameParam = urlParams.get('name'); // Looks for 'name'
         const codeParam = urlParams.get('code'); // Looks for 'code'
         
         // 5. Output the values directly into the HTML elements safely
-        if (nameParam) {
-            document.getElementById('username').textContent = nameParam;
-        }
         
         if (codeParam) {
             document.getElementById('tracking-code').textContent = codeParam;
