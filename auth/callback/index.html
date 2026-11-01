@@ -49,11 +49,31 @@
 <body>
     <div class="container">
         <h1>Welcome to Preston website - Day9</h1>
-        <p>Now hosted on Amazon S3!<br>update the login button.</p>
-
+        <p>Your tracking code is: <strong id="tracking-code">None</strong></p>
         <a href="https://prkwan-userpool.auth.us-east-1.amazoncognito.com/login?client_id=2ubrhcdgo498etmuc71buhv138&redirect_uri=https%3A%2F%2Fsfkwan.github.io%2Fprkwan-aws-cognito.github.io%2Fauth%2Fcallback%2F&response_type=code&scope=email+openid+phone" class="login-button">
             Login
         </a>
     </div>
+    
+    <script>
+        // 2. Get the full query string from the current page URL (e.g., "?name=Alex&code=123")
+        const queryString = window.location.search;
+        
+        // 3. Parse the query string using URLSearchParams
+        const urlParams = new URLSearchParams(queryString);
+        
+        // 4. Extract specific parameter values by their keys
+        const nameParam = urlParams.get('name'); // Looks for 'name'
+        const codeParam = urlParams.get('code'); // Looks for 'code'
+        
+        // 5. Output the values directly into the HTML elements safely
+        if (nameParam) {
+            document.getElementById('username').textContent = nameParam;
+        }
+        
+        if (codeParam) {
+            document.getElementById('tracking-code').textContent = codeParam;
+        }
+    </script>
 </body>
 </html>
