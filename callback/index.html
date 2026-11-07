@@ -79,6 +79,8 @@ debugger;
         let userEmail = userPayload.email || userPayload["cognito:username"] || "未知使用者";
         userEmailDisplay.textContent = userEmail;
 
+        AWS.config.region = 'us-east-1';
+
         // 更新 AWS 憑證
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
             IdentityPoolId: IDENTITY_POOL_ID,
