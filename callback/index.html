@@ -70,7 +70,6 @@
     const urlParams = new URLSearchParams(window.location.hash.substring(1));
     const accessToken = urlParams.get('access_token');
     const idToken = urlParams.get('id_token');
-debugger;
     if (accessToken && idToken) {
         // 使用 JWT Token 獲取使用者資訊
         const userPayload = JSON.parse(atob(idToken.split('.')[1]));
@@ -100,7 +99,6 @@ debugger;
             console.log("登入成功！");
             cognitoUser = userPool.getCurrentUser(); // 取得當前使用者
             userEmailDisplay.textContent = userEmail;
-            showProfilePage();
         });
     }
 
@@ -147,8 +145,8 @@ debugger;
 
     // 處理登出
     logoutBtn.addEventListener('click', () => {
-        if (cognitoUser) {
-            cognitoUser.signOut();
+        if (idToken) {
+            // cognitoUser.signOut();
             window.location.href = 'https://www.ducky-test.tw/'; // 替換為你的登入頁面 URL
         }
     });
