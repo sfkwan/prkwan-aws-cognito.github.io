@@ -70,7 +70,7 @@
     const urlParams = new URLSearchParams(window.location.hash.substring(1));
     const accessToken = urlParams.get('access_token');
     const idToken = urlParams.get('id_token');
-
+debuuger;
     if (accessToken && idToken) {
         // 使用 JWT Token 獲取使用者資訊
         const userPayload = JSON.parse(atob(idToken.split('.')[1]));
